@@ -9,15 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var redLight: UIView!
     @IBOutlet weak var yellowLight: UIView!
     @IBOutlet weak var greenLight: UIView!
     @IBOutlet weak var startButton: UIButton!
     
-    var redLightActive = false
-    var yellowLightActive = false
-    var greenLightActive = false
+    var redLightActive = true
+    var yellowLightActive = true
+    var greenLightActive = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,32 +29,46 @@ class ViewController: UIViewController {
         startButton.layer.cornerRadius = 20
         
     }
-
+    
     @IBAction func trafficLightSwitched(_ sender: Any) {
+        
         if redLightActive{
-            //print("Red light")
+            print("Red light")
             self.redLightActive = false
-            self.yellowLight.backgroundColor = #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1)
-            self.greenLight.backgroundColor = UIColor.gray
+            self.redLight.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            self.yellowLight.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0.55)
+            self.greenLight.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 0.55)
+            self.startButton.setTitle("Next", for: .normal)
             
-            self.startButton.setTitle("Start", for: .normal)
-           
-     /*   }else if yellowLightActive{
+        }else if yellowLightActive{
             print("Yellow light")
             self.yellowLightActive = false
             self.startButton.setTitle("Next", for: .normal)
-            self.redLight.backgroundColor = UIColor.gray
-            self.greenLight.backgroundColor = UIColor.gray
-        }else if greenLightActive {
+            self.redLight.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.55)
+            self.greenLight.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 0.55)
+            self.yellowLight.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
+            
+        }else if greenLightActive{
             print("Green light")
             self.greenLightActive = false
+            self.redLight.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.5561857877)
+            self.yellowLight.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0.550593964)
+            self.greenLight.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 1)
             self.startButton.setTitle("Next", for: .normal)
-            self.redLight.backgroundColor = UIColor.gray
-            self.yellowLight.backgroundColor = UIColor.gray */
+            
         }else{
-            self.yellowLight.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
-    }
+            print ("Return to start")
+            self.redLightActive = true
+            self.yellowLightActive = true
+            self.greenLightActive = true
+            self.redLight.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 0.5561857877)
+            self.yellowLight.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 0.550593964)
+            self.greenLight.backgroundColor = #colorLiteral(red: 0, green: 0.9768045545, blue: 0, alpha: 0.55)
+            self.startButton.setTitle("Repeat", for: .normal)
+            
+        }
         
+    }
+    
 }
 
-}
