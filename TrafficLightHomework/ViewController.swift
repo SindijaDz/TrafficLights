@@ -32,12 +32,14 @@ class ViewController: UIViewController {
 
     @IBAction func trafficLightSwitched(_ sender: Any) {
         if redLightActive{
-            print("Red light")
+            //print("Red light")
             self.redLightActive = false
-            self.startButton.setTitle("Start", for: .normal)
-            self.yellowLight.backgroundColor = UIColor.gray
+            self.yellowLight.backgroundColor = #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1)
             self.greenLight.backgroundColor = UIColor.gray
-        }else if yellowLightActive{
+            
+            self.startButton.setTitle("Start", for: .normal)
+           
+     /*   }else if yellowLightActive{
             print("Yellow light")
             self.yellowLightActive = false
             self.startButton.setTitle("Next", for: .normal)
@@ -48,9 +50,9 @@ class ViewController: UIViewController {
             self.greenLightActive = false
             self.startButton.setTitle("Next", for: .normal)
             self.redLight.backgroundColor = UIColor.gray
-            self.yellowLight.backgroundColor = UIColor.gray
+            self.yellowLight.backgroundColor = UIColor.gray */
         }else{
-        print ("Something went wrong")
+            self.yellowLight.backgroundColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1)
     }
         
 }
